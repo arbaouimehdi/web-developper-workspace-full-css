@@ -54,7 +54,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /*                     Animation                   /*
 /* =============================================== */
 /* Slide Code (Black Screen) */
-@keyframes slide {
+@-webkit-keyframes slide {
   from {
     background-position: 0px 0px; }
 
