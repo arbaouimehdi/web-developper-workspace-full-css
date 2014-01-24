@@ -1,0 +1,1436 @@
+/* =============================================== /*
+/*                                                 /* 
+/*                      CSS Reset                  /*
+/*                                                 /*
+/* =============================================== */
+@import "compass/reset";
+
+@import "compass";
+
+
+/* =============================================== /*
+/*                     Animation                   /*
+/* =============================================== */
+/* Slide Code (Black Screen) */
+@keyframes slide {
+    from{
+        background-position:0px 0px;
+    }
+    to{
+        background-position:0px 600px;
+    }
+}
+/* Clock Animation */
+@keyframes time {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body{
+	background: #d9effd;
+	background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 40%, #aacce2 40%);
+	background-size: 25px 60px;
+}
+
+
+/* =============================================== /*
+/*                                                 /* 
+/*                      Workspace                  /*
+/*                                                 /*
+/* =============================================== */
+#workspace {
+
+	div { position: absolute ;}
+
+	&:before {
+		content: '';
+		position: absolute;
+		z-index: 1;
+		width: 100%;
+		bottom: 0;
+		background: #e2aabe;
+		height: 68px;
+		border-top: 9px solid #ae758a;
+	}
+
+	.desk {
+		width: 990px;
+		height: 100%;
+		margin: auto;
+		position: inherit;
+	}
+}
+/*
+/*
+/* =============================================== /*
+/*                     Shelf                       /*
+/* =============================================== */
+#shelf {
+	top: 30px;
+	right: 5%;
+	width: 272px;
+	float: right;
+	padding: 0 30px;
+	
+	&:after, &:before {
+			content: ''; 
+			position: absolute;
+			width: 100%;
+			height: 15px;
+			@include transform(skew(20deg));
+			background: #79a8c5;
+			bottom: -23px;
+			left: 2px; }
+
+	&:before {
+		bottom: -15px;
+		right: 2px; }
+
+	div {
+		height: 8px;
+		width: 100%;
+		position: absolute;
+		bottom: -8px;
+		background: #fff;
+		right: 1px;
+		
+		&:after {
+			position: absolute;
+			content: '';
+			width: 100%;
+			height: 8px;
+			background: #79a8c5;
+			bottom: -15px;
+			right: -5px;
+		}
+	}
+
+	ul li { float: left; }
+}
+/*
+/*
+/* =============================================== /*
+/*               Clock animated By  Max            /*
+/*          http://codepen.io/MyXoToD/pen/psLen    /*
+/* =============================================== */
+.clock {
+  position: relative;
+  height: 123px;
+  width: 123px;
+  background: white;
+  box-sizing: border-box;
+  @include border-radius(100%);
+  border: 6px solid #5685A1;
+  position: absolute;
+  top: 30px;
+  left: 5%;
+  margin: auto;
+  .top {
+    position: absolute;
+    width: 3px;
+    height: 8px;
+    background: #262626;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+  .right {
+    position: absolute;
+    width: 8px;
+    height: 3px;
+    background: #262626;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto 0;
+  }
+  .bottom {
+    position: absolute;
+    width: 3px;
+    height: 8px;
+    background: #262626;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+  }
+  .left {
+    position: absolute;
+    width: 8px;
+    height: 3px;
+    background: #262626;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto 0;
+  }
+  .center {
+    height: 6px;
+    width: 6px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #262626;
+    @include border-radius(100%);
+  }
+  .hour {
+    width: 3px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    @include animation(time 86400s infinite linear);
+
+    &:before {
+      position: absolute;
+      content: "";
+      background: #262626;
+      height: 60px;
+      width: 3px;
+      top: 30px;
+    }
+  }
+  .minute {
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    @include animation(time 3600s infinite linear);
+
+    &:before {
+      position: absolute;
+      content: "";
+      background: #262626;
+      height: 40px;
+      width: 1px;
+      top: 50px;
+    }
+  }
+  .second {
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    @include animation(time 60s infinite linear);
+
+    &:before {
+      position: absolute;
+      content: "";
+      background: #fd1111;
+      height: 45px;
+      width: 2px;
+      top: 45px;
+    }
+  }
+}
+/*
+/*
+/* =============================================== /*
+/*                 iPad & iPhone                   /*
+/* =============================================== */
+.ipad {
+	position: relative;
+	background: #2c2c2c;
+	border: 8px solid #fff;
+	width: 55px;
+	height: 80px;
+	@include border-radius(5px);
+
+	&:before{
+		position: absolute;
+		bottom: -7px;
+		left: 50%;
+		content: '';
+		width: 5px;
+		height: 6px;
+		@include border-radius(50%);
+		background-color: #2c2c2c; 
+	}
+}
+/*
+/*
+/* =============================================== /*
+/*                      Books                      /*
+/* =============================================== */
+.books { margin-left: 10px;
+		 width: 190px;
+		 position: relative;
+		 top: 4px;
+
+
+	span { float: left;
+		   position: relative;
+
+			/* Orange */
+			&:nth-child(1), &:nth-child(12),
+			&:nth-child(4),&:nth-child(6){
+				width: 15px;
+				height: 61px;
+				background-color: #eb594a;
+			}
+			&:nth-child(4) {
+				width: 8px;
+				height: 84px;
+			}
+
+			/* Yellow */
+			&:nth-child(3),&:nth-child(7),
+			&:nth-child(9){
+				width: 8px;
+				height: 69px;
+				background-color: #f5b400;
+			}
+
+			&:nth-child(9),&:nth-child(6),
+			&:nth-child(5),&:nth-child(10) {
+				width: 16px;
+				height: 92px;
+			}
+			
+			/* White */
+			&:nth-child(8), &:nth-child(11) {
+				width: 23px;
+				height: 77px;
+				background-color: #fff;
+			}
+			
+			/* Blue */
+			&:nth-child(2),&:nth-child(5),
+			&:nth-child(10) {
+				background-color: #0e3757;
+			}
+			&:nth-child(2) {
+				width: 24px;
+				height: 77px;
+			}
+			
+			/* Positions */
+			&:nth-child(1), &:nth-child(12) {
+				top: 31px;
+			}	
+			&:nth-child(2),&:nth-child(8),
+			&:nth-child(11) {
+				top: 15px;
+			}
+			&:nth-child(3),&:nth-child(7) {
+				top: 23px;
+			}
+			&:nth-child(4), {
+				top: 8px;
+			}
+
+			/* Books Decoration*/
+			&:nth-child(2),&:nth-child(4),
+			&:nth-child(5),&:nth-child(6),
+			&:nth-child(8),&:nth-child(9),
+			&:nth-child(10),&:nth-child(11){
+				
+				&:before {
+					content: '';
+					display: block;
+					position: absolute;
+					width: 100%;
+					height: 50%;
+					top: 22px;
+				}
+
+			}
+			
+			/* Book 2 */
+			&:nth-child(2) {
+				&:before { background-color: #fff; }
+				
+				/* Diamond Narrow "Joseph Silber" */
+				i { display:block;
+					width: 0;
+					height: 0;
+					border: 7px solid transparent;
+					border-bottom: 15px solid #f3b502;
+					position: relative;
+					left: 5px;
+					top: 19px;
+
+						&:after {
+							content: '';
+							position: absolute;
+							top: 15px;
+							left: -7px;
+							width: 0;
+							height: 0;
+							border: 7px solid transparent;
+							border-top: 15px solid #f3b502;
+						}
+				}
+
+			}
+			
+			/* Book 4 */
+			&:nth-child(4) {
+				&:before { background-color: #fff;
+						   height: 77%;
+						   top: 10px; }
+			}
+
+			/* Book 5 */
+			&:nth-child(5) {
+				&:before  { background-color: #86cccc;
+						    height: 69%;
+						    top: 16px; }
+
+				&:after {  content: '';
+						   display: block;
+						   height: 7px;
+						   width: 7px;
+						   background-color: #fdfffc;
+						   @include border-radius(50%);
+						   position: relative;
+						   top: 20px;
+						   left: 4px; }
+			}
+
+			/* Book 6 */
+			&:nth-child(6) {
+				&:before { background-image: linear-gradient(rgba(0, 0, 0, 0) 40%, #FFF 40%);
+						   background-size: 16px 34px;
+						   background-repeat: repeat-y;
+						   height: 98%;
+						   top: 2px; }
+			}
+
+			/* Book 8 */
+			&:nth-child(8) {
+				&:before { background-color: #86cccc;
+						   height: 64%;
+						   top: 15px; }
+
+				&:after {
+					content: '';
+					display: block;
+					position: absolute;
+					width: 15px;
+					height: 31px;
+					background-color: #ec5b4a;
+					@include border-radius(100%);
+					top: 24px;
+					left: 4px;
+				}
+			}
+
+			/* Book 9 */
+			&:nth-child(9) {
+				&:before { 
+					background-color: #ec5a4b;
+					height: 65%;
+					top: 17px; 
+				}
+
+				&:after {
+					content: '';
+					display: block;
+					position: relative;
+					background-color: #fff;
+					width: 3px;
+					height: 50%;
+					top: 22px;
+				    left: 7px;
+				}
+
+			}
+
+			/* Book 10 */
+			&:nth-child(10) {
+				&:before { background-color: #fff; }
+
+				&:after {
+					width: 50%;
+					height: 35px;
+					content: '';
+					display: block;
+					position: relative;
+					top: 25px;
+					left: 8px;
+					background-image: linear-gradient(rgba(0, 0, 0, 0) 40%, #f5af01 40%);
+					background-size: 9px 7px;
+					background-repeat: repeat-y;
+				}
+			}
+
+			/* Book 11 */
+			&:nth-child(11) {
+				&:before { background-color: #86cccc; }
+			}
+
+	}
+}
+/*
+/*
+/* =============================================== /*
+/*                     Table                       /*
+/* =============================================== */
+
+.table {
+	position: absolute;
+	bottom: 33px;
+	z-index: 1;
+	width: 898px;
+	height: 297px;
+	margin-left: 92px;
+	@include transition-property(margin-left);
+	@include transition-duration(1s);
+	
+	&:after {
+		position: absolute;
+		content: '';
+		background: #ccbdac;
+		@include box-shadow(0 1px 7px 0 #958A7E);
+		height: 21px;
+		width: 100%;
+	
+	}
+	&:before {
+		position: absolute;
+		content: '';
+		background: #e0ceb8;
+		height: 100%;
+		width: 31px;
+	}
+
+	.right-tb { position: absolute;
+				right: 0;
+				width: 233px;
+				height: 274px;
+				padding: 23px 0 0 20px;
+				background: #e0ceb8;
+					
+					 &:after { content: '';
+							   width: 100%;
+							   height: 5px;
+							   position: absolute;
+							   bottom: -4px;
+							   background: #CA98AB;
+							   border-radius: 100%;
+							   right: 1px; }
+
+					 span { position: relative;
+					 	    padding: 2px;
+						    border: 2px solid #BBAA95;
+						    width: 205px;
+						    height: 70px;
+						    margin-top: 10px;
+						    display: block;
+							
+							&:before {
+								content: '';
+								background: #CEBCA7;
+								position: absolute;
+								width: 205px;
+								height: 70px;
+							}
+
+							&:after {
+								content: '';
+								background: #fff;
+								position: absolute;
+								width: 69px;
+								height: 15px;
+								left: 73px;
+								top: 18px;
+								@include border-radius(15px 15px 0 0);
+								border-bottom: 2px solid #9b8b77;
+							}
+
+						 }
+				}
+
+}
+/*
+/*
+/* =============================================== /*
+/*                     Mouse                       /*
+/* =============================================== */
+.mouse {
+	position: absolute;
+	background: #fff;
+	width: 40px;
+	height: 24px;
+	top: -24px;
+	left: 430px;
+	@include border-radius(23px 23px 0 0);
+	@include transition-property(left);
+	@include transition-duration(1s);
+}
+/*
+/*
+/* =============================================== /*
+/*                     Cup                         /*
+/* =============================================== */
+.cup {
+	position: absolute;
+	z-index: 1;
+	background: #eb9673;
+	width: 42px;
+	height: 55px;
+	top: -55px;
+	left: 195px;
+	@include border-radius(0 0 3px 3px);
+
+	&:after {
+		content: '';
+		position: absolute;
+		background: #c68060;
+		width: 100%;
+		height: 5px;
+		bottom: 0;
+		@include border-radius(0 0 3px 3px);
+	}
+
+	&:before {
+		content: '';
+		position: absolute;
+		width: 13px;
+		height: 29px;
+		top: 8px;
+		left: -18px;
+		@include border-radius(20px 0 0 20px);
+		border: 5px solid #eb9673;
+		border-right: none;
+	}
+
+	i { position: absolute;
+		width: 2px;
+		height: 17px;
+		background: #fff;
+		left: 22px;
+
+		&:before { content: '';
+			       position: absolute;
+				   width: 12px;
+				   height: 13px;
+				   background: #444;
+				   top: 17px;
+				   left: -5px; 
+				   @include border-radius(4px); }
+
+		&:after { content: '';
+				  position: absolute; 
+				  background: #dbd13a;
+				  width: 12px;
+				  height: 4px;
+				  top: 20px;
+				  left: -5px; }
+	}
+}
+/*
+/*
+/*
+/* =============================================== /*
+/*                     Router                      /*
+/* =============================================== */
+.router {
+	background: #424242;
+	position: absolute;
+	width: 84px;
+	height: 20px;
+	top: -22px;
+	left: 20px;
+
+	&:before, &:after {
+		background: #424242;
+		content: '';
+		position: absolute;
+		width: 16px;
+		height: 2px;
+		top: 20px;
+		right: 5px;
+	}
+	
+	&:after {
+		right: inherit;
+		left: 5px;
+	}
+	
+	ul { content: '';
+		 position: absolute;
+		 width: 4px;
+		 height: 31px;
+		 top: -35px;
+		 @include perspective(19px);
+		 left: 6px;
+
+				
+			&:before {
+				content: '';
+				position: absolute;
+				background: #424242;
+				@include rotateX(45deg);
+				width: 100%;
+				height: 100%;
+				outline: 1px solid transparent; // Correct Jagged edges in Firefox
+			}
+
+			&:after {
+				content: '';
+				background: #424242;
+				position: absolute;
+				width: 8px;
+				height: 8px;
+				@include border-radius(50%);
+				left: -2px;
+				top: 2px;
+			}
+
+			li { position: absolute;
+				 width: 4px;
+				 height: 4px;
+				 background: #fff;
+				 top: 43px;
+					
+					&:first-child {
+						@include border-radius(50%);
+							
+						&:after, &:before, i {
+							content: '';
+							position: absolute;
+							width: 4px;
+							height: 4px;
+							background: #fff;
+							left: 6px;
+							@include border-radius(50%);
+						}
+
+						&:before { left: 12px; }
+
+						i { left: 18px; }
+					}
+
+					&:nth-child(2){
+						width: 8px;
+				 		height: 8px;
+				 		left: 65px;
+				 		top: 41px;
+					}
+
+			   }
+
+		}
+}
+/*
+/*
+/*
+/* =============================================== /*
+/*                   Black Screen                  /*
+/* =============================================== */
+.bk-screen {
+	position: absolute;
+	width: 180px;
+	height: 241px;
+	background: #343441;
+	border: 8px solid #525151;
+	right: 45px;
+	top: -296px;
+	background:url(../images/codes.jpg);
+	background-size: 100%;
+  	@include animation(slide 15s linear infinite);
+
+	&:before {
+		content: '';
+		position: absolute;
+		background: #343434;
+		width: 78px;
+		height: 17px;
+		bottom: -25px;
+		left: 51px;
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		width: 76px;
+		height: 0;
+		bottom: -38px;
+		right: 38px;
+		border-bottom: 14px solid #626262;
+		border-left: 13px solid rgba(0, 0, 0, 0);
+		border-right: 14px solid rgba(0, 0, 0, 0);
+	}
+
+	i {
+		position: absolute;
+		background: #343434;
+		width: 103px;
+		height: 9px;
+		bottom: -47px;
+		left: 39px;
+	}
+
+}
+/*
+/*
+/* =============================================== /*
+/*                     Chair                       /*
+/* =============================================== */
+.chair {
+position: absolute;
+width: 165px;
+height: 436px;
+bottom: 34px;
+z-index: 2;
+margin-left: 575px;
+@include transition-property(margin-left);
+@include transition-duration(1s);
+	
+	&:after {
+		content: '';
+		position: absolute;
+		width: 165px;
+		height: 231px;
+		background: #3a3a3a;
+		@include border-radius(10px);
+	}
+
+	&:before {
+		content: '';
+		position: absolute;
+		background: #7d7d7d;
+		width: 12px;
+		height: 10px;
+		left: 76px;
+		top: 231px;
+	}
+
+	ul {
+		position: absolute;
+		width: 165px;
+		height: 23px;
+		background: #3a3a3a;
+		top: 240px;
+		@include border-radius(0 0 15px 15px);
+		
+		&:before {
+			content: '';
+			position: absolute;
+			background: #656565;
+			width: 141px;
+			height: 11px;
+			top: 23px;
+			left: 10px;
+		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			background: #4b4b4b;
+			width: 37px;
+			height: 7px;
+			top: 34px;
+			left: 62px;
+		}
+
+		li:first-child {
+			width: 18px;
+			height: 156px;
+			position: absolute;
+			left: 75px;
+			top: 41px;
+			@include perspective(99px);
+
+			&:after {
+				content: '';
+				position: absolute;
+				top: 16px;
+				width: 14px;
+				height: 167px;
+				background: #4b4b4b;
+				@include rotateX(160deg);
+				outline: 1px solid transparent; // Correct Jagged edges in Firefox
+			}
+
+		}
+
+		li:nth-child(2), li:nth-child(3) {
+			position: absolute;
+			width: 11px;
+			height: 96px;
+			top: 121px;
+			@include perspective(99px);
+			@include rotate(228deg);
+			left: 33px;
+
+			&:after {
+				content: '';
+				background: #4b4b4b;
+				position: absolute;
+				top: -24px;
+				width: 11px;
+				height: 123px;
+				@include rotateX(45deg);
+				outline: 1px solid transparent; // Correct Jagged edges in Firefox
+			}
+		}
+
+		li:nth-child(3){
+			left: 120px;
+			@include rotate(131deg);
+		}
+
+	}
+}
+/*
+/*
+/* =============================================== /*
+/*                     Trash                       /*
+/* =============================================== */
+.trash {
+	position: absolute;
+	bottom: 9px;
+	margin-left: 23px;
+	z-index: 2;
+	width: 71px;
+	height: 96px;
+	outline: 1px solid transparent; // Correct Jagged edges in Firefox
+	@include perspective(150px);
+	@include transform(rotate(180deg));
+	
+	&:before {
+		content: '';
+		position: absolute;
+		width: 75px;
+		height: 120px;
+		background: #fff;
+		@include transform(rotateX(45deg));
+		left: -1px;
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		width: 113px;
+		height: 7px;
+		background: #353C44;
+		top: 122px;
+		left: -19px;
+		@include border-radius(5px);
+	}
+
+	.shadows { top: 21px;
+		       width: 104px;
+		       height: 3px;
+			   left: -34px; }
+}
+/*
+/*
+/* =============================================== /*
+/*                     iMac                        /*
+/* =============================================== */
+.imac {
+	z-index: 0;
+	margin-top: -274px;
+	margin-left: 149px;
+	width: 289px;
+	height: 175px;
+	background: #5e5e5e;
+	border: 10px solid #fff;
+	border-bottom: 41px solid #fff;
+	@include border-radius(5px);
+	@include transition-property(margin-left);
+	@include transition-duration(1s);
+	
+	/* From http://codepen.io/JTParrett/pen/FGyft */
+	&:after {
+		content: '';
+		position: absolute;
+		top: 216px;
+		left: 104px;
+		width: 50px;
+		height: 26px;
+		background: #AEAEAE;
+		border: 20px solid #D9EFFD;
+		border-top: 0;
+		border-bottom: 20px solid #fff;
+		@include border-radius(5px);
+		@include box-shadow(0px 4px 0px -2px #909090);
+	}
+
+	img { width: 100%;
+		  height: 100%; }
+
+}
+/*
+/*
+/* =============================================== /*
+/*                     Note                        /*
+/* =============================================== */
+.note {
+	width: 31px;
+	height: 21px;
+	position: absolute;
+	background: #f9ec3e;
+	bottom: -33px;
+	border-top: 6px solid #cac222;
+	@include transform(rotate(-12deg));
+	@include box-shadow(0 1px 2px #dcdcdc);
+	font-size: 11px;
+	text-align: center;
+	padding-top: 7px;
+}
+/*
+/*
+/* =============================================== /*
+/*                     iPhone                      /*
+/* =============================================== */
+
+.iphone {
+	position: absolute;
+	top: -64px;
+	right: 30px;
+	width: 37px;
+	height: 64px;
+	background: #ededed;
+	@include border-radius(3px);
+	
+	&:before {
+		position: absolute;
+		content: '';
+		width: 29px;
+		height: 48px;
+		background: #2c2c2c;
+		top: 5px;
+		left: 4px;
+	}
+
+	&:after {
+		position: absolute;
+		content: '';
+		width: 5px;
+		height: 5px;
+		@include border-radius(50%);
+		background: #2c2c2c;
+		top: 56px;
+		left: 16px;
+	}
+
+}
+/* =============================================== /*
+/*                      shadows                    /*
+/* =============================================== */
+.shadows {
+	content: '';
+	width: 100%;
+	height: 5px;
+	position: absolute;
+	bottom: -4px;
+	background: #CA98AB;
+	border-radius: 100%;
+	z-index: 0;
+}
+
+
+/* =============================================== /*
+/*                                                 /* 
+/*                     Responsive                  /*
+/*                                                 /*
+/* =============================================== */
+@media only screen 
+and (max-height : 805px) 
+{
+
+#workspace .desk {
+	width: 724px;
+}
+
+/* Clock */
+.clock {
+	width: 100px;
+	height: 100px;
+
+	.hour:before { height: 34px;
+				   top: 41px; }
+
+	.minute:before { height: 31px;
+					 top: 46px; }
+
+	.second:before { height: 33px;
+					 top: 45px; }
+}
+
+/* Shelf */
+#shelf {
+	width: 206px;
+	
+	div:after {
+		right: -5px;
+	}
+
+	.ipad {
+		width: 47px;
+		height: 69px;
+		border: 7px solid #fff;
+
+		&:before {
+			bottom: -6px;
+			width: 4px;
+			height: 5px;
+		}
+	}
+	
+	.books {
+		width: 134px;
+		top: 10px;
+
+		span:nth-child(1), span:nth-child(12),
+		span:nth-child(4), span:nth-child(6) {
+			width: 10px;
+			height: 43px;
+			top: 30px;
+		}
+		span:nth-child(2) {
+			width: 17px;
+			height: 65px;
+			top: 7px;
+		}
+		span:nth-child(2):before,
+		span:nth-child(4):before,
+		span:nth-child(5):before,
+		span:nth-child(6):before,
+		span:nth-child(8):before,
+		span:nth-child(9):before,
+		span:nth-child(10):before,span:nth-child(11):before {
+			top: 17px;
+		}
+		span:nth-child(2) i{
+			border: 5px solid rgba(0, 0, 0, 0);
+			border-bottom: 13px solid #F3B502;
+			left: 4px;
+			top: 16px;
+
+			&:after {
+				left: -5px;
+				top: 13px;
+				border: 5px solid rgba(0, 0, 0, 0);
+				border-top: 13px solid #F3B502;	
+			}
+		}
+		span:nth-child(3), span:nth-child(7),
+		span:nth-child(9) {
+			width: 5px;
+			height: 49px;
+		}
+		span:nth-child(4) {
+			width: 6px;
+			height: 59px;
+			top: 13px;
+			&:before {
+				top: 7px !important;
+			}
+		}
+		span:nth-child(9), span:nth-child(6),
+		span:nth-child(5), span:nth-child(10) {
+			width: 11px;
+			height: 65px;
+			top: 8px;
+		}
+		span:nth-child(5) {
+			&:before {
+				top: 10px !important;
+			}
+			&:after {
+				width: 5px;
+				height: 5px;
+				top: 13px;
+				left: 3px;
+			}
+		}
+		span:nth-child(6):before {
+			background-size: 16px 18px;
+			height: 84%;
+			top: 2px !important;
+		}
+		span:nth-child(8), span:nth-child(11) {
+			width: 17px;
+			height: 54px;
+			top: 18px;
+			&:before {
+				top: 10px;
+			}
+			&:after {
+				top: 15px;
+				left: 4px;
+				width: 10px;
+				height: 24px;
+			}
+		}
+		span:nth-child(9):after {
+			left: 4px;
+		}
+		span:nth-child(10):after {
+			top: 15px;
+		}
+		span:nth-child(11):before {
+			height: 35px;
+		}
+	}
+}
+
+/* Table */
+.table { width: 639px;
+	     height: 211px;
+	     margin-left: 81px;
+			
+			.right-tb { width: 165px;
+						height: 191px;
+						padding: 20px 0 0 13px;
+							
+							span { width: 144px;
+								   height: 46px;
+								   margin-top: 8px;
+									
+									&:before { width: 144px;
+											   height: 46px; }
+
+									&:after { left: 51px;
+											  top: 14px;
+											  width: 47px;
+											  height: 10px; }
+
+							    }
+
+					   }
+
+			&:before { width: 24px; }
+
+			&:after { height: 15px; }
+
+	     }
+/* Chair */
+.chair { margin-left: 432px;
+		 width: 119px;
+		 height: 310px;
+			
+			&:after { height: 165px;
+			          width: 119px; }
+
+			&:before { width: 8px;
+					   height: 7px;
+					   top: 165px;
+					   left: 60px; }
+
+			ul { width: 119px;
+				 height: 15px;
+				 top: 172px; 
+					
+					&:before { width: 98px;
+							   height: 8px;
+							   top: 15px; }
+
+					&:after { width: 25px;
+							  height: 4px;
+							  top: 23px;
+							  left: 51px; }
+					
+					li {
+						&:first-child {
+							left: 60px;
+							top: 31px;
+							&:after { top: 7px;
+									  width: 10px;
+									  height: 108px; }
+						}
+
+						&:nth-child(2), &:nth-child(3){
+							top: 62px;
+
+							&:after {
+								width: 6px;
+								height: 109px;
+							}
+						}
+
+						&:nth-child(3) {
+							left: 83px;
+							top: 67px;
+							height: 93px;
+						}
+
+
+					}
+
+			   }
+
+	   }
+
+/* iMac */
+.imac {
+	margin-top: -195px;
+	margin-left: 105px;
+	width: 201px;
+	height: 122px;
+	border-bottom: 29px solid #fff;
+
+	&:after {
+		top: 151px;
+		left: 69px;
+		width: 43px;
+		height: 18px;
+		border-bottom: 14px solid #eee;
+	}
+}
+
+/* Note */
+.note { 
+	width: 23px;
+	height: 16px;
+	bottom: -31px;
+	border-top: 3px solid #cac222;
+	font-size: 9px
+}
+
+/* Mouse */
+.mouse {
+	width: 32px;
+	height: 18px;
+	top: -18px;
+	left: 322px;
+}
+
+/* Black Screen */
+.bk-screen {
+	width: 126px;
+	height: 168px;
+	right: 36px;
+	top: -209px;
+	border: 6px solid #525151;
+	
+	&:before {
+		width: 54px;
+		height: 11px;
+		bottom: -17px;
+		left: 39px;
+	}
+
+	&:after {
+		width: 54px;
+		bottom: -28px;
+		right: 19px;
+		border-bottom: 11px solid #626262;
+	}
+
+	i {
+		width: 80px;
+		height: 7px;
+		bottom: -35px;
+		left: 27px;
+	}
+}
+
+/* Cup */
+.cup {
+	top: -39px;
+	left: 149px;
+	width: 30px;
+	height: 39px;
+
+	i { height: 12px;
+		left: 13px;
+		
+		&:before { width: 10px;
+				   height: 9px;
+				   top: 13px;
+				   left: -4px; }
+
+		&:after { width: 10px;
+				  height: 2px;
+				  top: 15px;
+				  left: -4px; }
+	}
+
+	&:before {
+		width: 9px;
+		height: 18px;
+		top: 6px;
+		left: -13px;
+		border: 4px solid #eb9673;
+	}
+}
+
+/* iPhone */
+.iphone {
+	position: absolute;
+	top: -50px;
+	right: 30px;
+	width: 31px;
+	height: 50px;
+	
+	&:before {
+		width: 23px;
+		height: 35px;
+		top: 5px;
+		left: 4px;
+	}
+
+	&:after {
+		top: 43px;
+		left: 13px;
+	}
+}
+
+/* Router */
+.router {
+	width: 61px;
+	height: 14px;
+	top: -17px;
+	
+	&:before, &:after {
+		top: 14px;
+		width: 12px;
+	}
+	
+	ul {
+			li:first-child {
+				width: 3px;
+				height: 3px;
+				top: 41px;
+
+				&:after, &:before, i {
+					width: 3px;
+					height: 3px;
+				}
+			}
+
+			li:nth-child(2){
+				width: 5px;
+				height: 5px;
+				left: 45px;
+				top: 39px;
+			}
+	}
+
+}
+
+/* Trash */
+.trash {
+	width: 62px;
+	bottom: 12px;
+
+	&:before {
+		width: 65px;
+		height: 100px;
+	}
+	&:after {
+		width: 92px;
+		height: 6px;
+		top: 97px;
+		left: -14px;
+	}
+	.shadow { top: 17px; }
+}
+
+}
