@@ -4,8 +4,10 @@
 /*                                                 /*
 /* =============================================== */
 @import "compass/reset";
-
-@import "compass";
+@import "compass/css3/transition";
+@import "compass/css3/transform";
+@import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
 
 
 /* =============================================== /*
@@ -20,7 +22,48 @@
         background-position:0px 600px;
     }
 }
+@-moz-keyframes slide {
+    from{
+        background-position:0px 0px;
+    }
+    to{
+        background-position:0px 600px;
+    }
+}
+@-o-keyframes slide {
+    from{
+        background-position:0px 0px;
+    }
+    to{
+        background-position:0px 600px;
+    }
+}
+@keyframes slide {
+    from{
+        background-position:0px 0px;
+    }
+    to{
+        background-position:0px 600px;
+    }
+}
+
+
 /* Clock Animation */
+@-webkit-keyframes time {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes time {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes time {
+  to {
+    transform: rotate(360deg);
+  }
+}
 @keyframes time {
   to {
     transform: rotate(360deg);
@@ -184,7 +227,10 @@ body{
     left: 0;
     right: 0;
     margin: 0 auto;
-    @include animation(time 86400s infinite linear);
+	-webkit-animation: time 86400s infinite linear;
+	-moz-animation:    time 86400s infinite linear;
+	-o-animation:      time 86400s infinite linear;
+	animation:         time 86400s infinite linear;
 
     &:before {
       position: absolute;
@@ -202,7 +248,10 @@ body{
     left: 0;
     right: 0;
     margin: 0 auto;
-    @include animation(time 3600s infinite linear);
+    -webkit-animation: time 3600s infinite linear;
+	-moz-animation:    time 3600s infinite linear;
+	-o-animation:      time 3600s infinite linear;
+	animation:         time 3600s infinite linear;
 
     &:before {
       position: absolute;
@@ -220,7 +269,10 @@ body{
     left: 0;
     right: 0;
     margin: 0 auto;
-    @include animation(time 60s infinite linear);
+    -webkit-animation: time 60s infinite linear;
+	-moz-animation:    time 60s infinite linear;
+	-o-animation:      time 60s infinite linear;
+	animation:         time 60s infinite linear;
 
     &:before {
       position: absolute;
@@ -739,7 +791,10 @@ body{
 	top: -296px;
 	background:url(../images/codes.jpg);
 	background-size: 100%;
-  	@include animation(slide 15s linear infinite);
+  	-webkit-animation: slide 15s linear infinite;
+	-moz-animation:    slide 15s linear infinite;
+	-o-animation:      slide 15s linear infinite;
+	animation:         slide 15s linear infinite;
 
 	&:before {
 		content: '';
