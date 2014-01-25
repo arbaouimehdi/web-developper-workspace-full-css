@@ -4,14 +4,14 @@
 /*    http://codepen.io/martingrand/details/aAldc   /*
 /*                                                  /*
 /* ================================================ */
-$('.houre, .minute, .second').data('plus-deg', 0)
+$('.hour, .minute, .second').data('plus-deg', 0)
 calcTime();
 $('#clock').addClass('aminate');
 var int = setInterval(calcTime, 1000);
 function calcTime () {
   var d = new Date();
   var h = d.getHours();
-  rotate($('.houre'),  ((h > 12 ? h - 12 : h)*30)-90);
+  rotate($('.hour'),  ((h > 12 ? h - 12 : h)*30)-90);
   rotate($('.minute'), (d.getMinutes()/*0-59*/*6)-90);
   rotate($('.second'), (d.getSeconds()/*0-59*/*6)-90);
 }
