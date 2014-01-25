@@ -4,7 +4,7 @@
 /*    http://codepen.io/martingrand/details/aAldc   /*
 /*                                                  /*
 /* ================================================ */
-$('.hour, .minute, .second').data('plus-deg', 0)
+$('.hour, .minute, .second').data('plus-deg', 0);
 calcTime();
 $('#clock').addClass('aminate');
 var int = setInterval(calcTime, 1000);
